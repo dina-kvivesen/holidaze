@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+.background__image {
+  background: url('/header gudvangen.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.nav__link {
+  @apply transition block px-3 py-2 rounded-md text-sm text-gray-600 hover:bg-gray-100 hover:text-gray-900 active:text-gray-900 active:bg-gray-200;
+}
+.nav__link--active {
+  @apply transition  text-gray-800 font-medium;
+}
+
+.dashboard__link {
+  @apply m-3 p-3 rounded-md opacity-70 flex items-center;
+}
+.dashboard__link:hover {
+  @apply bg-secondary-darkest m-3 p-3 rounded-md opacity-100 flex items-center;
+}
+.dashboard__link--active {
+  @apply bg-secondary  m-3 p-3 rounded-md opacity-100 flex items-center;
+}
