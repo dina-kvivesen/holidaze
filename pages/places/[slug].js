@@ -1,7 +1,6 @@
 import Head from '../../components/layout/Head';
 import { HeadingSmaller } from '../../components/common/Heading';
 import Layout from '../../components/layout/Layout';
-import axios from 'axios';
 import { BASE_URL } from '../../constants/api';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
