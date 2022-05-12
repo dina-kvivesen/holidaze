@@ -11,10 +11,10 @@ function Cards({ filteredPlaces }) {
           key={place.id}
           className="shadow hover:shadow-md border border-gray-100 grid grid-cols-1 grid-rows-2 h-96 rounded-md">
           <div className="rounded-md row-span-1">
-            <Link href="/places/slug" as={`/places/${place.slug}`}>
+            <Link href="places/slug" as={`/places/${place.slug}`}>
               <a>
                 <img
-                  src={place.attributes.images.data[0].attributes.url}
+                  src={place.attributes.images.data[0]?.attributes.url}
                   alt=""
                   className="object-cover w-full h-full rounded-t-md"
                 />
@@ -51,13 +51,6 @@ function Cards({ filteredPlaces }) {
                   place.parking === 1 ? 'parking' : 'parking'
                 }`}
               />
-            </ul>
-            <ul>
-              {place.kitchen && <CardListItem icon="kitchen" text="Kitchen" />}
-              {place.breakfast && (
-                <CardListItem icon="breakfast" text="Breakfast" />
-              )}
-              {place.wifi && <CardListItem icon="wifi" text="WIFI" />}
             </ul>
           </div>
         </li>
