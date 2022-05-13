@@ -28,7 +28,7 @@ function AdminDropdown() {
           <div>
             <Menu.Button
               as="button"
-              className="max-w-xs transition hover:shadow-md hover:bg-gray-100  px-3 py-1 rounded-full flex items-center text-sm  focus:outline-none focus:ring-0 ">
+              className="max-w-xs transition hover:shadow-md hover:bg-slate-200  px-3 py-1 rounded-full flex items-center text-sm  focus:outline-none focus:ring-0 ">
               {adminOpen ? (
                 <XIcon
                   className="block h-6 w-6"
@@ -36,7 +36,7 @@ function AdminDropdown() {
                   onClick={() => setAdminOpen(!adminOpen)}
                 />
               ) : (
-                <MenuIcon
+                <MenuAlt3Icon
                   className="block h-6 w-6"
                   aria-hidden="true"
                   onClick={() => setAdminOpen(!adminOpen)}

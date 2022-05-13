@@ -24,16 +24,15 @@ a {
 * {
   box-sizing: border-box;
 }
-
 .nav__link {
-  @apply transition block px-3 py-2 rounded-md text-sm text-gray-600 hover:bg-gray-100 hover:text-gray-900 active:text-gray-900 active:bg-gray-200;
+  @apply transition block px-3 py-2 rounded-md text-sm text-slate-200 hover:bg-gray-100 hover:text-gray-900 active:text-gray-300 active:bg-gray-200;
 }
 .nav__link--active {
-  @apply transition  text-gray-800 font-medium;
+  @apply transition  text-gray-900 bg-gray-200 font-medium;
 }
 
 .dashboard__link {
-  @apply m-3 p-3 rounded-md opacity-70 flex items-center;
+  @apply m-3 p-3 rounded-md opacity-70 flex items-center text-gray-900;
 }
 .dashboard__link:hover {
   @apply bg-secondary-darkest m-3 p-3 rounded-md opacity-100 flex items-center;

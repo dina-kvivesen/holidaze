@@ -66,7 +66,7 @@ export default function Navbar() {
               </>
             ) : (
               <Link href="/login">
-                <a>Sign in</a>
+                <a className="text-slate-200">Sign in</a>
               </Link>
             )}
           </div>
