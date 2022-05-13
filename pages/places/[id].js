@@ -10,18 +10,18 @@ import Features from '../../components/places/singleplace/Features';
 
 export default function Place() {
   const router = useRouter();
-  const { slug } = router.query;
-  console.log(router.query);
+  const { id } = router.query;
 
   const { data, error } = useSWR(
-    slug ? `${BASE_URL}places?slug=${slug}` : null
+    id ? `${BASE_URL}places?populate=*&{id}` : null
+    
     
   );
 
   if (error) return <p>error</p>;
   if (!data) return <p>loading..</p>;
 
-  const place = data;
+  const place = data[0];
 
   return (
     <Layout containerSize="smallWidth">

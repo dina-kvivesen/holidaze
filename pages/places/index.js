@@ -56,7 +56,7 @@ function Home() {
           setFilteredPlaces={setFilteredPlaces}
         />
       </div>
-      <div className="grid grid-cols-3 grid-rows-2 gap-4 places__wrapper">
+      <div className="grid grid-cols-3 grid-rows-2 gap-4 places__wrapper bg-neutral-light py-10 rounded-t-lg">
         <ul className="col-span-5 md:col-span-2 row-span-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-2 gap-4 overflow-y-auto">
           <Cards filteredPlaces={filteredPlaces} />
         </ul>

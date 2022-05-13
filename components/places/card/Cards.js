@@ -11,10 +11,10 @@ function Cards({ filteredPlaces }) {
           key={place.id}
           className="shadow hover:shadow-md border border-gray-100 grid grid-cols-1 grid-rows-2 h-96 rounded-md">
           <div className="rounded-md row-span-1">
-            <Link href="places/slug" as={`/places/${place.slug}`}>
+            <Link href="/places/[id]" as={`/places/${place.attributes.title}`}>
               <a>
                 <img
-                  src={place.attributes.images.data[0]?.attributes.url}
+                  src={place.attributes.images.data[0].attributes.formats.small.url}
                   alt=""
                   className="object-cover w-full h-full rounded-t-md"
                 />
@@ -23,7 +23,7 @@ function Cards({ filteredPlaces }) {
           </div>
 
           <div className="p-4">
-            <Link href={`/places/${place.slug}`}>
+            <Link href={`/places/${place.id}`}>
               <a>
                 <h3 className="font-bold">{place.attributes.title}</h3>
               </a>
