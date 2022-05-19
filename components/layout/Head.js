@@ -15,7 +15,10 @@ function Head({ title = '' }) {
 }
 
 Head.propTypes = {
-  title: PropTypes.string,
+  title: PropTypes.oneOfType ([
+    PropTypes.string,
+    PropTypes.number
+  ]),
 };
 
 export default Head;

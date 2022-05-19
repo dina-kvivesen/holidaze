@@ -40,7 +40,7 @@ function ContactForm() {
     setSubmitting(true);
     setSubmitError(null);
     try {
-      const response = await axios.post(BASE_URL + 'messsages', data);
+      const response = await axios.post(BASE_URL + 'messages', {data:data});
       console.log(response);
       setSubmitMessage(<Message message="Message sent" style="success" />);
     } catch (error) {
@@ -55,10 +55,10 @@ function ContactForm() {
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <fieldset disabled={submitting}>
-          <div className="mt-2 shadow-lg overflow-hidden sm:rounded-md">
-            <div className="px-4 py-5 bg-white sm:p-6">
-              <div className="text-left">
-                <div className="flex flex-col mb-6">
+          <div className="mt-2 shadow-lg overflow-hidden sm:rounded-md ">
+            <div className="px-4 py-5 bg-white sm:p-6 ">
+              <div className="text-left sm:w-10/12 lg:w-2/4 mx-auto">
+                <div className="flex flex-col mb-6 ">
                   <label
                     htmlFor="email"
                     className="block text-sm font-medium text-gray-700">
@@ -117,7 +117,7 @@ function ContactForm() {
                   {errors.message && errors.message.message}
                 </div>
               </div>
-              <div className="flex flex-col md:flex-row justify-between items-center">
+              <div className="flex flex-col md:flex-row justify-between items-center sm:w-10/12 lg:w-2/4 mx-auto">
                 <div>
                   {submitError ? (
                     <Message message={submitError} style="danger" />

@@ -9,7 +9,7 @@ export function getStrapiURL(path = '') {
 
 export function fetchData(path) {
   const url = getStrapiURL(path);
-  const fetcher = (url) => axios.get(url).then((res) => res.data);
+  const fetcher = (url) => axios.get(url).then((res) => res.data.data);
   const { data, error } = useSWR(url, fetcher);
 
   return { data, error };
@@ -25,7 +25,7 @@ export function fetchAdminData(path) {
           Authorization: 'Bearer ' + token,
         },
       })
-      .then((res) => res.data);
+      .then((res) => res.data.data);
 
   const { data, error } = useSWR(token ? url : null, fetchWithToken, {
     refreshInterval: 5000,

@@ -49,15 +49,15 @@ function Home() {
     <Layout containerSize="fullWidth">
       <Head title="Accommodations" />
        <Heading text="Accomodations" />
-      <div className="max-w-2xl mx-4" style={{ height: '100px' }}>
+      <div className="max-w-2xl mx-auto" style={{ height: '100px' }}>
         <SearchBar
           places={places}
           filteredPlaces={filteredPlaces}
           setFilteredPlaces={setFilteredPlaces}
         />
       </div>
-      <div className="grid grid-cols-3 grid-rows-2 gap-4 places__wrapper bg-neutral-light py-10 rounded-t-lg ">
-        <ul className="col-span-5 md:col-span-2 row-span-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-2 gap-4 overflow-y-auto mx-auto ">
+      <div className="grid grid-cols-2 grid-rows-2 gap-4  bg-neutral-light py-10 rounded-t-lg ">
+        <ul className="col-span-5 md:col-span-2 row-span-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 overflow-y-auto mx-auto ">
           <Cards filteredPlaces={filteredPlaces} />
         </ul>
       </div>

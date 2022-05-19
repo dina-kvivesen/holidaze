@@ -19,7 +19,7 @@ function Layout({ children, containerSize }) {
   }
 
   return (
-    <div className="flex flex-col min-h-screen z-20 bg-primary-dark">
+    <div className="flex flex-col min-h-screen bg-gradient-to-b from-primary-dark to-primary-light">
       <Navbar />
       <div className={`flex-grow ${containerSize}`}>
         <main className="mx-auto">{children}</main>

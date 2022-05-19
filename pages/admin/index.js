@@ -1,4 +1,4 @@
-/* import AdminLayout from '../../components/admin/layout/AdminLayout';
+import AdminLayout from '../../components/admin/layout/AdminLayout';
 import Heading from '../../components/common/Heading';
 import Head from '../../components/layout/Head';
 import { useContext, useEffect } from 'react';
@@ -43,4 +43,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard; */
+export default Dashboard;

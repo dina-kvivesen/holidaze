@@ -4,8 +4,6 @@ import Layout from '../components/layout/Layout';
 import { PrimaryButton } from '../components/common/Buttons';
 import Link from 'next/link';
 
-// check if api call works:
-
 export default function Home() {
   return (
     <div className="background__image">

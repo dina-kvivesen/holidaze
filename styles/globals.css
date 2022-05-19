@@ -20,10 +20,10 @@ a {
   color: inherit;
   text-decoration: none;
 }
-
 * {
   box-sizing: border-box;
 }
+
 .nav__link {
   @apply transition block px-3 py-2 rounded-md text-sm text-slate-200 hover:bg-gray-100 hover:text-gray-900 active:text-gray-300 active:bg-gray-200;
 }
@@ -32,11 +32,17 @@ a {
 }
 
 .dashboard__link {
-  @apply m-3 p-3 rounded-md opacity-70 flex items-center text-gray-900;
+  @apply m-3 p-3 rounded-md opacity-80 flex items-center text-gray-100;
 }
 .dashboard__link:hover {
   @apply bg-secondary-darkest m-3 p-3 rounded-md opacity-100 flex items-center;
 }
 .dashboard__link--active {
   @apply bg-secondary  m-3 p-3 rounded-md opacity-100 flex items-center;
+}
+
+@layer utilities {
+  .translate-3d-50 {
+    transform: translate3d(-50%, -50%, 0);
+  }
 }

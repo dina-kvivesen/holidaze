@@ -28,15 +28,15 @@ function EnquiryForm({ place, host }) {
   const [submitError, setSubmitError] = useState(null);
   const [submitMessage, setSubmitMessage] = useState('');
 
-  const { register, handleSubmit, errors, reset } = useForm({
-    resolver: yupResolver(schema),
+  const { register, handleSubmit, reset, formState: { errors }} = useForm({
+    resolver: yupResolver(schema)
   });
 
   async function onSubmit(data) {
     setSubmitting(true);
     setSubmitError(null);
     try {
-      const response = await axios.post(BASE_URL + 'enquiries', data);
+      const response = await axios.post(BASE_URL + 'enquiries', {data:data});
       console.log(response);
       setSubmitMessage(<Message message="Enquiry sent" style="success" />);
     } catch (error) {
@@ -52,13 +52,13 @@ function EnquiryForm({ place, host }) {
       <form onSubmit={handleSubmit(onSubmit)}>
         <fieldset disabled={submitting}>
           <input
-            ref={register}
+            {...register('place')}
             type="hidden"
             name="place"
             id="place"
             value={place}></input>
           <input
-            ref={register}
+            {...register('host')}
             type="hidden"
             name="host"
             id="host"
@@ -77,7 +77,7 @@ function EnquiryForm({ place, host }) {
                     name="user_email"
                     id="user_email"
                     autoComplete="email"
-                    ref={register}
+                    {...register('user_email')}
                     className="mt-2 py-2 px-3 border outline-none border-gray-300  focus:border-primary rounded-md"></input>
                   {errors.user_email && errors.user_email.message}
                 </div>
@@ -92,7 +92,7 @@ function EnquiryForm({ place, host }) {
                     name="user_name"
                     id="user_name"
                     autoComplete="name"
-                    ref={register}
+                    {...register('user_name')}
                     className="mt-2 py-2 px-3 border outline-none border-gray-300  focus:border-primary rounded-md"></input>
                   {errors.user_name && errors.user_name.message}
                 </div>
@@ -106,7 +106,7 @@ function EnquiryForm({ place, host }) {
                     id="message"
                     name="message"
                     rows="5"
-                    ref={register}
+                    {...register('message')}
                     className="mt-2 py-2 px-3 border outline-none border-gray-300  focus:border-primary rounded-md"></textarea>
                   {errors.message && errors.message.message}
                 </div>

@@ -77,7 +77,7 @@ function SearchBar({ places, filteredPlaces, setFilteredPlaces }) {
             z-50 overflow-hidden overflow-y-auto  max-h-80 rounded-md shadow border mt-2 border-gray-300`}>
         {filteredPlaces.map((place) => (
           <li key={place.id} className="z-50 cursor-pointer">
-            <Link href="/places/[slug]" as={`/places/${place.slug}`}>
+            <Link href="/places/[id]" as={`/places/${place.id}`}>
               <a className="block  bg-white px-4 py-2 hover:text-white hover:bg-primary-light">
                 {place.attributes.title}
               </a>

@@ -14,7 +14,7 @@ function Cards({ filteredPlaces }) {
             <Link href="/places/[id]" as={`/places/${place.id}`}>
               <a>
                 <img
-                  src={place.attributes.images.data[0].attributes.formats.small.url}
+                  src={place.attributes.featuredImage.data.attributes.formats.small.url}
                   alt=""
                   className="object-cover w-full h-full rounded-t-md"
                 />

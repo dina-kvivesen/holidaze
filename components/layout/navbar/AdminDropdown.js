@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Menu, Transition } from '@headlessui/react';
-import { LogoutIcon, CogIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
+import { LogoutIcon, CogIcon, MenuAlt3Icon, XIcon } from '@heroicons/react/outline';
 import Link from 'next/link';
 import { useContext } from 'react';
 import { useRouter } from 'next/router';
@@ -28,23 +28,23 @@ function AdminDropdown() {
           <div>
             <Menu.Button
               as="button"
-              className="max-w-xs transition hover:shadow-md hover:bg-slate-200  px-3 py-1 rounded-full flex items-center text-sm  focus:outline-none focus:ring-0 ">
+              className="max-w-xs transition hover:shadow-md px-3 py-1 rounded-full flex items-center text-sm  focus:outline-none focus:ring-0 ">
               {adminOpen ? (
                 <XIcon
-                  className="block h-6 w-6"
+                  className="block h-6 w-6 text-slate-200 hover:text-gray-900"
                   aria-hidden="true"
                   onClick={() => setAdminOpen(!adminOpen)}
                 />
               ) : (
                 <MenuAlt3Icon
-                  className="block h-6 w-6"
+                  className="block h-6 w-6 text-slate-200 hover:text-gray-900"
                   aria-hidden="true"
                   onClick={() => setAdminOpen(!adminOpen)}
                 />
               )}
               <img
                 className="h-8 w-8 ml-3 rounded-full"
-                src={auth.user.avatar.url}
+                //src={auth.user.profileImg.url}
                 alt=""
                 onClick={() => setAdminOpen(!adminOpen)}
                 aria-label="Open or close user menu"
@@ -66,7 +66,7 @@ function AdminDropdown() {
               static
               className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg pb-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
               <p className="px-4 py-2 text-sm text-black font-medium">
-                {auth.user.firstname} {auth.user.lastname}
+                 {auth.user.username} 
               </p>
               <Menu.Item>
                 <Link href="/admin">

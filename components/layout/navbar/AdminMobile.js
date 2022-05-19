@@ -19,7 +19,7 @@ function AdminMobile() {
         <div className="flex-shrink-0">
           <img
             className="h-10 w-10 rounded-full"
-            src={auth.user.avatar.url}
+            // src={auth.user.avatar.url}
             alt="Avatar image"
           />
         </div>

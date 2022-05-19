@@ -5,10 +5,10 @@ import ContactForm from '../components/contact/ContactForm';
 
 export default function Home() {
   return (
-    <Layout containerSize="smallWidth">
+    <Layout containerSize="fullWidth">
       <Head title="Contact" />
       <Heading text="Contact" />
-      <div className="sm:w-10/12 lg:w-2/4 mx-auto">
+      <div className=" mx-auto">
         <ContactForm />
       </div>
     </Layout>
