@@ -38,7 +38,7 @@ function Host({ host, place }) {
             leaveFrom="opacity-100"
             leaveTo="opacity-0">
             <Disclosure.Panel static>
-              <EnquiryForm place={place} host={host.name} />
+              <EnquiryForm place={place} host={host} />
             </Disclosure.Panel>
           </Transition>
         </>

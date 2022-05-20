@@ -161,7 +161,7 @@ function MobileSidebar({
                 </li>
               </ul>
             </div>
-           {/*  <div className="flex flex-row justify-center items-center py-4 bg-secondary w-full">
+            {/* <div className="flex flex-row justify-center items-center py-4 bg-secondary w-full">
               <img
                 className="h-10 w-10 rounded-full"
                 src={auth.user.avatar.url}
@@ -170,8 +170,7 @@ function MobileSidebar({
               />
               <div className="flex flex-col ml-4">
                 <p className="text-sm">
-                  <span className="mr-1">{auth.user.firstname}</span>
-                  {auth.user.lastname}
+                  {auth.user.username}
                 </p>
                 <p className="text-xs text-secondary-light opacity-70">
                   {auth.user.email}

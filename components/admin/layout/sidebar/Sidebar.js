@@ -161,9 +161,7 @@ function Sidebar({ auth, setAuth, newMessages, enquiryLength, logout }) {
             ${auth.user.lastname}`}
           />
           <p>
-            <span className="mr-1"> {auth.user.firstname}</span>
-
-            {auth.user.lastname}
+            {auth.user.username}
           </p>
           <p className="text-xs text-secondary-light opacity-70">
             {auth.user.email}
