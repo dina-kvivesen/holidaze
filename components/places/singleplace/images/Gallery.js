@@ -4,11 +4,13 @@ import 'react-image-lightbox/style.css';
 function Gallery({ open, setOpen, photoIndex, setPhotoIndex, images }) {
   let imageUrls = [];
   images.forEach((image) => {
-    imageUrls.push(image.data.attributes.formats.url);
+   //console.log(image);
+   imageUrls.push(image.attributes?.url);
   });
   let imageThumbs = [];
   images.forEach((image) => {
-    imageThumbs.push(image.data.attributes.formats.thumbnail.url);
+    console.log(image.attributes?.formats.thumbnail.url);
+    imageThumbs.push(image.attributes?.formats.thumbnail.url);
   });
   return (
     <>

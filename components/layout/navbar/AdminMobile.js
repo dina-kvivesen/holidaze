@@ -16,13 +16,7 @@ function AdminMobile() {
   return (
     <>
       <div className="flex items-center px-5">
-        <div className="flex-shrink-0">
-          <img
-            className="h-10 w-10 rounded-full"
-            // src={auth.user.avatar.url}
-            alt="Avatar image"
-          />
-        </div>
+        
         <div className="ml-3">
           <div className="text-sm text-black font-medium">
             {auth.user.firstname} {auth.user.lastname}

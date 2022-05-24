@@ -162,12 +162,6 @@ function MobileSidebar({
               </ul>
             </div>
             {/* <div className="flex flex-row justify-center items-center py-4 bg-secondary w-full">
-              <img
-                className="h-10 w-10 rounded-full"
-                src={auth.user.avatar.url}
-                alt={`${auth.user.firstname}
-            ${auth.user.lastname}`}
-              />
               <div className="flex flex-col ml-4">
                 <p className="text-sm">
                   {auth.user.username}

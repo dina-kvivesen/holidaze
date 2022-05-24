@@ -154,12 +154,6 @@ function Sidebar({ auth, setAuth, newMessages, enquiryLength, logout }) {
         </div>
 
         {/* <div className="flex flex-col items-center pb-8 bg-secondary w-full">
-          <img
-            className="h-16 w-16 ml-3 -mt-8 rounded-full"
-            src={auth.user.avatar.url}
-            alt={`${auth.user.firstname}
-            ${auth.user.lastname}`}
-          />
           <p>
             {auth.user.username}
           </p>

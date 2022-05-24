@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import useSWR from 'swr';
 import Features from '../../components/places/singleplace/Features';
 import Host from '../../components/places/singleplace/Host';
-// import ImageGrid from '../../components/places/singleplace/images/ImageGrid';
+import ImageGrid from '../../components/places/singleplace/images/ImageGrid';
 
 export default function Place() {
   const router = useRouter();
@@ -23,7 +23,7 @@ export default function Place() {
 
 const parsedId = parseInt(id);
 const place = data.find(item => item.id === parsedId);
-    console.log(place);
+   console.log(place.attributes.images);
   
 
   return (
@@ -31,8 +31,8 @@ const place = data.find(item => item.id === parsedId);
       <div className="bg-neutral-light min-h-screen p-5 mt-20 rounded-t-lg">
       <div className="mt-5">
         <Head title={place.id} />
-        <></>
-        {/* <ImageGrid featured={place.attributes.featuredImage.data.attributes.formats.small.url} images={place.attributes.images} /> */}
+        {/* <></> */}
+        <ImageGrid featured={place.attributes.featuredImage} images={place.attributes.images} />
         <HeadingSmaller text={place.attributes.title} />
         <div className="my-4 flex items-center">
           <p className="text-xl">

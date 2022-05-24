@@ -42,13 +42,7 @@ function AdminDropdown() {
                   onClick={() => setAdminOpen(!adminOpen)}
                 />
               )}
-              <img
-                className="h-8 w-8 ml-3 rounded-full"
-                //src={auth.user.profileImg.url}
-                alt=""
-                onClick={() => setAdminOpen(!adminOpen)}
-                aria-label="Open or close user menu"
-              />
+              
             </Menu.Button>
           </div>
           <Transition

@@ -31,11 +31,11 @@ const schema = yup.object().shape({
     .max(50, textTooLong)
     .min(2, textTooShort)
     .required(<Message message="Please enter a title" style="warning" />),
-  address: yup
+ /*  address: yup
     .string()
     .max(50, textTooLong)
     .min(5, textTooShort)
-    .required(<Message message="Please enter an address" style="warning" />),
+    .required(<Message message="Please enter an address" style="warning" />), */
   host: yup
     .string()
     .max(50, textTooLong)
@@ -84,7 +84,7 @@ const schema = yup.object().shape({
     .max(1500, textTooLong)
     .min(30, textTooShort)
     .required(<Message message="Please enter a description" style="warning" />),
-  featured_image: yup
+  featuredImage: yup
     .mixed()
     .required(
       <Message message="Please select a featured image" style="warning" />
@@ -104,18 +104,28 @@ function AddPlace() {
     );
   }
 
-  const { register, handleSubmit, formState: { errors }} = useForm({
+  const { register, handleSubmit, reset, formState: { errors }} = useForm({
     resolver: yupResolver(schema)
   });
 
   async function onSubmit(data) {
-    const url = BASE_URL + 'places';
+    const url = BASE_URL + 'places?populate=*';
     console.log(data);
     setSubmitting(true);
     setSubmitError(null);
     const token = auth.jwt;
     try {
-      const response = await axios.post(
+      const options = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      const response = await axios.post(url, {data:data}, options);
+     /*  const response = await axios.post(url, data,  {headers: {
+        Authorization: `Bearer ${token}`},
+      }) */
+
+      /* const response = await axios.post(
         url,
         {
           headers: {
@@ -123,14 +133,14 @@ function AddPlace() {
           },
         },
         data
-      );
+      ); */
       console.log(response);
     } catch (error) {
       console.log('error', error);
       setSubmitError(error.toString());
     } finally {
       setSubmitting(false);
-      // reset();
+      reset();
     }
   }
 
@@ -161,7 +171,7 @@ function AddPlace() {
                           className="w-full mt-1 py-2 px-3 border outline-none border-gray-300  focus:border-primary rounded-md"></input>
                         {errors.title && errors.title.message}
                       </div>
-                      <div>
+                      {/* <div>
                         <label
                           htmlFor="address"
                           className="mt-3 block text-sm font-medium text-gray-700">
@@ -174,7 +184,7 @@ function AddPlace() {
                           {...register('address')}
                           className="w-full mt-1 py-2 px-3 border outline-none border-gray-300  focus:border-primary rounded-md"></input>
                         {errors.address && errors.address.message}
-                      </div>
+                      </div> */}
                       <div>
                         <label
                           htmlFor="host"
@@ -256,7 +266,7 @@ function AddPlace() {
                       </label>
                       <div className="h-60 flex flex-col col-span-1 sm:col-span-2 xl:col-span-1">
                         <textarea
-                          type="number"
+                          type="text"
                           name="description"
                           id="description"
                           {...register('description')}
