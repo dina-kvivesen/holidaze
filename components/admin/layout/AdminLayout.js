@@ -10,7 +10,6 @@ import AuthContext from '../../../context/AuthContext';
 import { useRouter } from 'next/router';
 import { fetchAdminData, getNewEnquiries } from '../../../hooks/useApi';
 import { BigMessage } from '../../common/Message';
-import Image from 'next/image'
 
 function AdminLayout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -65,7 +64,7 @@ function AdminLayout({ children }) {
               <div className="flex z-50 items-center justify-between h-16">
                 <Link href="/">
                   <a>
-                    <Image
+                    <img
                       src="/logo1.png"
                       alt="Holidaze Logo"
                       className="w-36"

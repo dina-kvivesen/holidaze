@@ -25,10 +25,10 @@ function Dashboard() {
         <Head title="Dashboard" />
         <Heading text="Dashboard" />
         <div className="w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 justify-center">
-          <DashboardBoxes href="admin/messages" heading="Messages">
+          <DashboardBoxes href="/admin/messages" heading="Messages">
             <p>List of messages here</p>
           </DashboardBoxes>
-          <DashboardBoxes href="admin/enquiries" heading="Enquiries">
+          <DashboardBoxes href="/admin/enquiries" heading="Enquiries">
             <p>List of Enquiries here</p>
           </DashboardBoxes>
         </div>
