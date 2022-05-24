@@ -10,11 +10,6 @@ function Host({ host, place }) {
         <>
           <div className="flex bg-gray-100 justify-between items-center p-4 py-6 rounded-md">
             <div className="flex items-center">
-              <img
-                /* src={host.url}
-                alt="profileimage" */
-                className="w-10 rounded-full mr-4" 
-              /> 
               <p className="font-semibold">{host}</p>
             </div>
             <Disclosure.Button as="div">

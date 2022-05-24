@@ -20,7 +20,11 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           <Link href="/">
             <a>
-              <img src="/logo1.png" alt="Holidaze Logo" className="w-36" />
+              <img 
+              src="/logo1.png" 
+              alt="Holidaze Logo"
+              className="w-36"
+              />
             </a>
           </Link>
 

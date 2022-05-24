@@ -44,6 +44,7 @@ function ImagesUpload({ register }) {
             <div className="w-full h-32">
               <img
                 src={file.preview}
+                alt={""}
                 className="rounded-md object-cover w-full h-full"
               />
             </div>
@@ -107,11 +108,11 @@ function ImagesUpload({ register }) {
           </svg>
           <div className="flex text-sm text-gray-600">
             <label
-              htmlFor="featuredImage"
+              htmlFor="images"
               className="relative cursor-pointer bg-white rounded-md font-medium text-primary hover:text-primary-dark focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-primary">
               <span>Upload Images</span>
             </label>
-            <input {...register('featuredImage')} {...getInputProps()} />
+            <input {...register('images')} {...getInputProps()} />
             <p className="pl-1">or drag and drop</p>
           </div>
           <p className="text-xs text-gray-500">PNG, JPG, GIF up to 1MB</p>

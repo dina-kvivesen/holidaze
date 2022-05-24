@@ -95,7 +95,11 @@ function AddPlace() {
   const [auth, setAuth] = useContext(AuthContext);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState(null);
+  
   const router = useRouter();
+  const { register, handleSubmit, reset, formState: { errors }} = useForm({
+    resolver: yupResolver(schema),
+  });
 
   if (!auth) {
     router.push('/login');
@@ -104,9 +108,9 @@ function AddPlace() {
     );
   }
 
-  const { register, handleSubmit, reset, formState: { errors }} = useForm({
-    resolver: yupResolver(schema)
-  });
+  /* const { register, handleSubmit, reset, formState: { errors }} = useForm({
+    resolver: yupResolver(schema),
+  }); */
 
   async function onSubmit(data) {
     const url = BASE_URL + 'places?populate=*';
@@ -189,7 +193,7 @@ function AddPlace() {
                         <label
                           htmlFor="host"
                           className="mt-3 block text-sm font-medium text-gray-700">
-                          Host's name:
+                          Hosts name:
                         </label>
                         <input
                           type="text"
@@ -301,9 +305,6 @@ function AddPlace() {
                 </fieldset>
               </form>
             </div>
-            {/*             <p className="p-6 font-semibold text-sm cursor-pointer">
-              <a onClick={() => router.back()}>Go back to places</a>
-            </p> */}
           </div>
         </div>
       </AdminLayout>

@@ -44,6 +44,7 @@ function FeaturedImageUpload({ register, error, errormessage }) {
         <div className="w-full h-32">
           <img
             src={file.preview}
+            alt={""}
             className="rounded-md object-cover w-full h-full"
           />
         </div>

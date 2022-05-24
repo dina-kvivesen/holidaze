@@ -17,7 +17,7 @@ function AdminDropdown() {
   }
   useEffect(() => {
     if (!auth) {
-      // router.push('/login');
+    // router.push('/login');
     }
   }, []);
 

@@ -4,9 +4,9 @@ import 'react-image-lightbox/style.css';
 function Gallery({ open, setOpen, photoIndex, setPhotoIndex, images }) {
   let imageUrls = [];
   images.forEach((image) => {
-   //console.log(image);
-   imageUrls.push(image.attributes?.url);
-  });
+    //console.log(image);
+    imageUrls.push(image.attributes?.url);
+   });
   let imageThumbs = [];
   images.forEach((image) => {
     console.log(image.attributes?.formats.thumbnail.url);

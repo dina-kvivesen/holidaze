@@ -7,11 +7,11 @@ function ImageGrid({ featured, images }) {
   const [photoIndex, setPhotoIndex] = useState(0);
 
   // only show the first 4 images in the grid
-  const fourImages = images.data.slice(0, 4);
+  const fourImages = images.slice(0, 4);
 
   // Add featured image to list of images so it can be used in lightbox
   let imageArray = [featured];
-  images.data.forEach((image) => {
+  images.forEach((image) => {
     imageArray.push(image);
   });
 
@@ -28,8 +28,8 @@ function ImageGrid({ featured, images }) {
       </p>
       <div className="max-h-full row-span-2 col-span-2">
         <img
-          src={featured.url}
-          alt={featured.alternativeText}
+          src={featured.attributes.url}
+          alt={featured.attributes.alternativeText}
           className="cursor-pointer object-cover w-full h-full rounded-md"
           onClick={() => {
             setOpen(!open);
@@ -58,8 +58,8 @@ function ImageGrid({ featured, images }) {
           return (
             <div key={image.id} className={`max-h-full ${space}`}>
               <img
-                src={image.url}
-                alt={image.alternativeText}
+                src={image.attributes.url}
+                alt={image.attributes.alternativeText}
                 className="cursor-pointer object-cover w-full h-full rounded-md"
                 onClick={() => {
                   setOpen(!open);

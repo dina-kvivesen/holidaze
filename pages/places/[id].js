@@ -23,7 +23,7 @@ export default function Place() {
 
 const parsedId = parseInt(id);
 const place = data.find(item => item.id === parsedId);
-   console.log(place.attributes.images);
+   console.log(place.attributes.images.data);
   
 
   return (
@@ -32,7 +32,7 @@ const place = data.find(item => item.id === parsedId);
       <div className="mt-5">
         <Head title={place.id} />
         {/* <></> */}
-        <ImageGrid featured={place.attributes.featuredImage} images={place.attributes.images} />
+        <ImageGrid featured={place.attributes.featuredImage.data} images={place.attributes.images.data} />
         <HeadingSmaller text={place.attributes.title} />
         <div className="my-4 flex items-center">
           <p className="text-xl">
