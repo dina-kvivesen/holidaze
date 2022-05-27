@@ -1,33 +1,23 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  UsersIcon,
-  MoonIcon,
-  WifiIcon,
-  SparklesIcon,
-  HomeIcon,
-  SunIcon,
-} from '@heroicons/react/outline';
+  faBath,
+  faParking,
+  faBed,
+} from "@fortawesome/free-solid-svg-icons";
 
 function FeaturesListItem({ icon, text }) {
   switch (icon) {
-    case 'guest':
-      icon = <UsersIcon className="inline w-5 mr-2 text-primary" />;
+    case 'parking':
+      icon = <FontAwesomeIcon icon={faParking} className="inline w-5 mr-2 text-primary-light" />;
       break;
     case 'bed':
-      icon = <MoonIcon className="inline w-5 mr-2 text-primary" />;
+      icon = <FontAwesomeIcon icon={faBed} className="inline w-5 mr-2 text-primary-light" />;
       break;
     case 'bath':
-      icon = <SparklesIcon className="inline w-5 mr-2 text-primary" />;
-      break;
-    case 'kitchen':
-      icon = <HomeIcon className="inline w-5 mr-2 text-primary" />;
-      break;
-    case 'breakfast':
-      icon = <SunIcon className="inline w-5 mr-2 text-primary" />;
-      break;
-    case 'wifi':
-      icon = <WifiIcon className="inline w-5 mr-2 text-primary" />;
+      icon = <FontAwesomeIcon icon={faBath} className="inline w-5 mr-2 text-primary-light" />;
       break;
   }
+
   return (
     <li className="inline-block text-base font-semibold mr-6">
       {icon}

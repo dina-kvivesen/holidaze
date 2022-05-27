@@ -43,9 +43,9 @@ const place = data.find(item => item.id === parsedId);
           <div className="col-span-5 xl:col-span-3">
             <div>
               <Features
-                guests={place.attributes.bed}
+                bedrooms={place.attributes.bed}
                 bathrooms={place.attributes.bath}
-                bedrooms={place.attributes.parking}
+                parking={place.attributes.parking}
               />
             </div>
             <div className="block xl:hidden">

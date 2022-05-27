@@ -1,5 +1,5 @@
 import { Disclosure } from '@headlessui/react';
-import { MenuIcon, XIcon } from '@heroicons/react/outline';
+import { MenuAlt3Icon, XIcon } from '@heroicons/react/outline';
 
 function SidebarToggle({ sidebarOpen, setSidebarOpen }) {
   return (
@@ -13,7 +13,7 @@ function SidebarToggle({ sidebarOpen, setSidebarOpen }) {
             onClick={() => setSidebarOpen(!sidebarOpen)}
           />
         ) : (
-          <MenuIcon
+          <MenuAlt3Icon
             className="block h-6 w-6"
             aria-hidden="true"
             onClick={() => setSidebarOpen(!sidebarOpen)}

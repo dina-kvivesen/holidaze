@@ -4,15 +4,13 @@ import {
   ViewGridIcon,
   MailIcon,
   QuestionMarkCircleIcon,
-  UsersIcon,
   LogoutIcon,
   ArrowCircleLeftIcon,
-  LocationMarkerIcon,
 } from '@heroicons/react/outline';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-function Sidebar({ auth, setAuth, newMessages, enquiryLength, logout }) {
+function Sidebar({ auth, setAuth, logout }) {
   const router = useRouter();
 
   return (
@@ -53,19 +51,6 @@ function Sidebar({ auth, setAuth, newMessages, enquiryLength, logout }) {
                 </a>
               </Link>
             </li>
-            <li>
-              <Link href="/admin/editplaces">
-                <a
-                  className={
-                    router.pathname == '/admin/editplaces'
-                      ? 'dashboard__link--active'
-                      : 'dashboard__link'
-                  }>
-                  <LocationMarkerIcon className="inline w-5 mr-3" />
-                  Places
-                </a>
-              </Link>
-            </li>
             <li className="relative">
               <Link href="/admin/messages">
                 <a
@@ -78,19 +63,6 @@ function Sidebar({ auth, setAuth, newMessages, enquiryLength, logout }) {
                   Messages
                 </a>
               </Link>
-              {newMessages > 0 && (
-                <>
-                  <svg
-                    className="absolute left-4 top-2 text-primary fill-current w-4"
-                    viewBox="0 0 100 100"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="50" r="50" />
-                  </svg>
-                  <span className="absolute left-4 top-2 px-1 text-xs font-medium">
-                    {newMessages}
-                  </span>
-                </>
-              )}
             </li>
             <li className="relative">
               <Link href="/admin/enquiries">
@@ -102,32 +74,6 @@ function Sidebar({ auth, setAuth, newMessages, enquiryLength, logout }) {
                   }>
                   <QuestionMarkCircleIcon className="inline w-5 mr-3" />
                   Enquiries
-                </a>
-              </Link>
-              {enquiryLength > 0 && (
-                <>
-                  <svg
-                    className="absolute left-4 top-2 text-primary fill-current w-4"
-                    viewBox="0 0 100 100"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="50" r="50" />
-                  </svg>
-                  <span className="absolute left-4 top-2 px-1 text-xs font-medium">
-                    {enquiryLength}
-                  </span>
-                </>
-              )}
-            </li>
-            <li>
-              <Link href="/admin/hosts">
-                <a
-                  className={
-                    router.pathname == '/admin/hosts'
-                      ? 'dashboard__link--active'
-                      : 'dashboard__link'
-                  }>
-                  <UsersIcon className="inline w-5 mr-3" />
-                  Hosts
                 </a>
               </Link>
             </li>
@@ -146,15 +92,15 @@ function Sidebar({ auth, setAuth, newMessages, enquiryLength, logout }) {
                       : 'dashboard__link'
                   }>
                   <ArrowCircleLeftIcon className="inline w-5 mr-3" />
-                  Back to website
+                  Website
                 </a>
               </Link>
             </li>
           </ul>
         </div>
 
-        {/* <div className="flex flex-col items-center pb-8 bg-secondary w-full">
-          <p>
+        {/* <div className="flex flex-col items-center pb-8 w-full">
+          <p className='flex justify-center'>
             {auth.user.username}
           </p>
           <p className="text-xs text-secondary-light opacity-70">

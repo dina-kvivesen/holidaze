@@ -3,6 +3,10 @@ module.exports = {
   content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      fontFamily: {
+        poppins: 'Poppins',
+        sans: ['Poppins', 'sans-serif'],
+      },
       height: {
         xxl: '450px',
       },
@@ -20,7 +24,7 @@ module.exports = {
         secondary: {
           light: '#EEF2FF',
           DEFAULT: '#153044',
-          dark: '#001D2F',
+          dark: '#123044',
           darkest: '#001725',
         },
         success: {

@@ -6,10 +6,8 @@ import {
   ViewGridIcon,
   MailIcon,
   QuestionMarkCircleIcon,
-  UsersIcon,
   LogoutIcon,
   ArrowCircleLeftIcon,
-  LocationMarkerIcon,
 } from '@heroicons/react/outline';
 import { PrimaryButton } from '../../../common/Buttons';
 
@@ -17,8 +15,6 @@ function MobileSidebar({
   sidebarOpen,
   auth,
   setAuth,
- /*  newMessages,
-  enquiryLength, */
   logout,
 }) {
   const router = useRouter();
@@ -37,7 +33,7 @@ function MobileSidebar({
             leave="transition ease-in duration-75"
             leaveFrom="transform opacity-100"
             leaveTo="transform opacity-0">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 ">
               <div className="mb-8">
                 <Link href="/admin/addplace">
                   <a className="cursor-pointer">
@@ -62,19 +58,6 @@ function MobileSidebar({
                     </a>
                   </Link>
                 </li>
-                <li>
-                  <Link href="/admin/editplaces">
-                    <a
-                      className={
-                        router.pathname == '/admin/editplaces'
-                          ? 'dashboard__link--active'
-                          : 'dashboard__link'
-                      }>
-                      <LocationMarkerIcon className="inline w-5 mr-3" />
-                      Places
-                    </a>
-                  </Link>
-                </li>
                 <li className="relative">
                   <Link href="/admin/messages">
                     <a
@@ -87,19 +70,6 @@ function MobileSidebar({
                       Messages
                     </a>
                   </Link>
-                 {/*  {newMessages > 0 && (
-                    <>
-                      <svg
-                        className="absolute left-4 top-2 text-primary fill-current w-4"
-                        viewBox="0 0 100 100"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="50" cy="50" r="50" />
-                      </svg>
-                      <span className="absolute left-4 top-2 px-1 text-xs font-medium">
-                        {newMessages}
-                      </span>
-                    </>
-                  )} */}
                 </li>
                 <li className="relative">
                   <Link href="/admin/enquiries">
@@ -111,32 +81,6 @@ function MobileSidebar({
                       }>
                       <QuestionMarkCircleIcon className="inline w-5 mr-3" />
                       Enquiries
-                    </a>
-                  </Link>
-                 {/*  {enquiryLength > 0 && (
-                    <>
-                      <svg
-                        className="absolute left-4 top-2 text-primary fill-current w-4"
-                        viewBox="0 0 100 100"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="50" cy="50" r="50" />
-                      </svg>
-                      <span className="absolute left-4 top-2 px-1 text-xs font-medium">
-                        {enquiryLength}
-                      </span>
-                    </>
-                  )} */}
-                </li>
-                <li>
-                  <Link href="/admin/hosts">
-                    <a
-                      className={
-                        router.pathname == '/admin/hosts'
-                          ? 'dashboard__link--active'
-                          : 'dashboard__link'
-                      }>
-                      <UsersIcon className="inline w-5 mr-3" />
-                      Hosts
                     </a>
                   </Link>
                 </li>
@@ -155,7 +99,7 @@ function MobileSidebar({
                           : 'dashboard__link'
                       }>
                       <ArrowCircleLeftIcon className="inline w-5 mr-3" />
-                      Back to website
+                      Website
                     </a>
                   </Link>
                 </li>
@@ -163,7 +107,7 @@ function MobileSidebar({
             </div>
             {/* <div className="flex flex-row justify-center items-center py-4 bg-secondary w-full">
               <div className="flex flex-col ml-4">
-                <p className="text-sm">
+                <p className="text-sm flex justify-center">
                   {auth.user.username}
                 </p>
                 <p className="text-xs text-secondary-light opacity-70">

@@ -2,6 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  @font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+    style: bold;
+  }
+  @font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+    style: normal;
+  }
+}
+
 html,
 body {
   padding: 0;
@@ -11,9 +46,10 @@ body {
 }
 
 .background__image {
-  background: url('/header gudvangen.jpg');
+  background: linear-gradient(0deg, rgba(0, 82, 102, 0.3), rgba(0, 160, 200, 0.3)), url('/header gudvangen.jpg');
   background-position: center;
   background-size: cover;
+  background-blend-mode: multiply;
 }
 
 a {
@@ -30,7 +66,12 @@ a {
 .nav__link--active {
   @apply transition  text-gray-900 bg-gray-200 font-medium;
 }
-
+.nav__link__mobile {
+  @apply transition block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 active:text-gray-300 active:bg-gray-200;
+}
+.nav__link__mobile--active {
+  @apply transition  text-gray-900 bg-gray-200 font-medium;
+}
 .dashboard__link {
   @apply m-3 p-3 rounded-md opacity-80 flex items-center text-gray-100;
 }

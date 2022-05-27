@@ -61,21 +61,21 @@ function Login() {
     }
   }
   return (
-    <Layout containerSize="smallWidth">
+    <Layout containerSize="fullWidth">
       <Head title="Log in" />
       <Heading text="Login" />
-      <div className="sm:w-10/12 lg:w-2/4 mx-auto">
+      <div className="mx-auto">
         {auth ? (
           <BigMessage
             message="Logged in! Redirecting to dashboard."
             style="success"
           />
         ) : (
-          <>
-            <form onSubmit={handleSubmit(onSubmit)}>
+          <div className='h-screen bg-neutral-light py-10 rounded-t-3xl m-0 '>
+            <form className='sm:w-10/12 lg:w-2/4 mx-auto' onSubmit={handleSubmit(onSubmit)}>
               <fieldset disabled={submitting}>
-                <div className="mt-14 shadow-lg overflow-hidden sm:rounded-md">
-                  <div className="px-4 py-5 bg-white sm:p-6">
+                <div className="mt-14 overflow-hidden sm:rounded-md">
+                  <div className="px-4 py-5 sm:p-6">
                     <div className="text-left">
                       <div className="flex flex-col mb-6">
                         <label
@@ -127,7 +127,7 @@ function Login() {
                 </div>
               </fieldset>
             </form>
-          </>
+          </div>
         )}
       </div>
     </Layout>

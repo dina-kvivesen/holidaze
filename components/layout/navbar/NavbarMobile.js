@@ -19,13 +19,13 @@ function NavbarMobile({ menuOpen }) {
         leave="transition ease-in duration-75"
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95">
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3  bg-white rounded-t-md">
+        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white rounded-t-md">
           <Link href="/">
             <a
               className={
                 router.pathname == '/'
-                  ? 'nav__link  nav__link--active'
-                  : 'nav__link'
+                  ? 'nav__link__mobile  nav__link--active'
+                  : 'nav__link__mobile'
               }>
               Home
             </a>
@@ -34,8 +34,8 @@ function NavbarMobile({ menuOpen }) {
             <a
               className={
                 router.pathname == '/places'
-                  ? 'nav__link  nav__link--active'
-                  : 'nav__link'
+                  ? 'nav__link__mobile  nav__link--active'
+                  : 'nav__link__mobile'
               }>
               Accommodations
             </a>
@@ -44,14 +44,14 @@ function NavbarMobile({ menuOpen }) {
             <a
               className={
                 router.pathname == '/contact'
-                  ? 'nav__link  nav__link--active'
-                  : 'nav__link'
+                  ? 'nav__link__mobile  nav__link--active'
+                  : 'nav__link__mobile'
               }>
               Contact
             </a>
           </Link>
         </div>
-        <div className="pt-4 pb-3 border-t border-gray-700  bg-white rounded-b-md">
+        <div className="pt-4 pb-3 border-t border-slate-400 bg-white rounded-b-md">
           {auth ? (
             <AdminMobile user={auth.user} />
           ) : (

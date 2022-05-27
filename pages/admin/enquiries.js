@@ -23,10 +23,10 @@ function Enquiries() {
 
   const { data, error } = fetchAdminData('enquiries?_sort=created_at:DESC');
 
-  function getHosts(placeName) {
+  /* function getHosts(placeName) {
     const { data, error } = fetchData('places?title_contains=' + placeName);
     console.log(data);
-  }
+  } */
   function readEnquiry(id) {
     const { data } = axios.put(
       BASE_URL + 'enquiries/' + id,
@@ -76,9 +76,6 @@ function Enquiries() {
                   className="w-full px-2 md:px-6 py-3 text-left text-sm font-semibold text-white uppercase tracking-wider">
                   Host / Message
                 </th>
-                <th
-                  scope="col"
-                  className="w-2/12 px-6 py-3 text-left text-sm font-semibold text-white uppercase tracking-wider"></th>
               </tr>
             </thead>
             <tbody className="w-full bg-white divide-y divide-gray-200">
@@ -86,13 +83,9 @@ function Enquiries() {
                 return (
                   <tr
                     key={enquiry.id}
-                    className={`${
-                      enquiry.new === true
-                        ? 'text-black font-bold'
-                        : 'text-gray-700 bg-neutral-light'
-                    }   cursor-pointer w-full transition hover:shadow-lg`}
+                    className={`cursor-pointer w-full transition hover:shadow-lg`}
                     onClick={() =>
-                      enquiry.new === true && readEnquiry(enquiry.id)
+                     readEnquiry(enquiry.id)
                     }>
                     <td className="hidden md:table-cell w-1/12 md:w-1/3 px-6 py-4 truncate whitespace-nowrap">
                       {enquiry.attributes.user_name}
@@ -105,22 +98,6 @@ function Enquiries() {
                           <a>{enquiry.attributes.host}</a>
                         </Link>
                       </span>
-
-                      <span
-                        className={
-                          enquiry.new === true
-                            ? 'text-gray-600 font-normal ml-4 truncate w-3/4'
-                            : 'text-gray-400 ml-4 truncate w-3/4'
-                        }>
-                        {enquiry.attributes.message}
-                      </span>
-                    </td>
-                    <td className="px-2 md:px-6 py-4 whitespace-nowrap">
-                      {enquiry.new === true && (
-                        <p className="bg-primary text-white p-1 px-3 inline text-center mx-auto  rounded-full text-xs font-semibold">
-                          New
-                        </p>
-                      )}
                     </td>
                   </tr>
                 );

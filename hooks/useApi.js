@@ -33,15 +33,3 @@ export function fetchAdminData(path) {
 
   return { data, error };
 }
-export function getNewEnquiries() {
-  const { data, error } = fetchAdminData('enquiries?new=true');
-  if (error) {
-    console.log(error);
-    return 'error';
-  }
-  if (!data) {
-    return 'loading';
-  }
-  const enquiryLength = data.length;
-  return enquiryLength;
-}

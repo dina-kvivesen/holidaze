@@ -36,24 +36,26 @@ function SingleMessage() {
     <>
       <AdminLayout>
         <Head title="Messages | Dashboard" />
-        <div className="w-full mx-auto">
-          <div className="shadow m-10 border-b bg-white sm:rounded-lg overflow-hidden">
-            <div className="p-6 bg-primary-light text-white">
+        <div className="w-full mx-auto h-screen bg-neutral-light py-10 rounded-t-3xl">
+          <div className="p-10  sm:rounded-lg overflow-hidden">
+            <div className="p-6 bg-primary-light rounded-t-lg text-white">
               <h1 className="font-semibold text-lg">{data.attributes.title}</h1>
             </div>
-            <div className="p-6 flex flex-row justify-between flex-wrap text-sm">
-              <p>
-                <span className="font-bold">{data.attributes.name}</span> {data.attributes.email}
-              </p>
-              <p>
-                {date} ({dateFromNow})
+            {/* <div className='h-screen bg-neutral-light py-10 rounded-t-3xl'> */}
+              <div className="p-6 flex flex-row justify-between flex-wrap text-sm">
+                <p>
+                  <span className="font-bold">{data.attributes.name}</span> {data.attributes.email}
+                </p>
+                <p>
+                  {date} ({dateFromNow})
+                </p>
+              </div>
+              <p className="p-6 leading-relaxed">{data.attributes.message}</p>
+              <p className="p-6 font-semibold text-sm cursor-pointer">
+                <a onClick={() => router.back()}>Go back to messages</a>
               </p>
             </div>
-            <p className="p-6 leading-relaxed">{data.attributes.message}</p>
-            <p className="p-6 font-semibold text-sm cursor-pointer">
-              <a onClick={() => router.back()}>Go back to messages</a>
-            </p>
-          </div>
+          {/* </div> */}
         </div>
       </AdminLayout>
     </>

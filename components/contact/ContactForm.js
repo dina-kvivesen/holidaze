@@ -32,9 +32,6 @@ function ContactForm() {
   const { register, handleSubmit, reset, formState: { errors }} = useForm({
     resolver: yupResolver(schema)
   });
-  /* const { register, handleSubmit, errors, reset } = useForm({
-    resolver: yupResolver(schema),
-  }); */
 
   async function onSubmit(data) {
     setSubmitting(true);
@@ -55,7 +52,7 @@ function ContactForm() {
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <fieldset disabled={submitting}>
-          <div className="mt-2 shadow-lg overflow-hidden sm:rounded-md ">
+          <div className="mt-2 shadow-lg overflow-hidden rounded-t-3xl ">
             <div className="px-4 py-5 bg-white sm:p-6 ">
               <div className="text-left sm:w-10/12 lg:w-2/4 mx-auto">
                 <div className="flex flex-col mb-6 ">

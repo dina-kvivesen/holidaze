@@ -9,8 +9,8 @@ function Cards({ filteredPlaces }) {
       {filteredPlaces.map((place) => (
         <li
           key={place.id}
-          className="shadow hover:shadow-md border border-gray-100 grid grid-cols-1 grid-rows-2 h-96 rounded-md">
-          <div className="rounded-md row-span-1">
+          className="shadow hover:shadow-md border border-gray-100 grid grid-cols-1 grid-rows-2 h-96 rounded-t-3xl">
+          <div className="row-span-2">
             <Link href="/places/[id]" as={`/places/${place.id}`}>
               <a>
                 <img

@@ -3,7 +3,6 @@ import Head from '../../components/layout/Head';
 import { useState, useContext } from 'react';
 import { useRouter } from 'next/router';
 import { PrimaryButton } from '../../components/common/Buttons';
-import FeaturedImageUpload from '../../components/admin/addplace/FeaturedImageUpload';
 import { BigMessage, Message } from '../../components/common/Message';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
@@ -11,7 +10,6 @@ import axios from 'axios';
 import { yupResolver } from '@hookform/resolvers/yup';
 import AuthContext from '../../context/AuthContext';
 import Heading from '../../components/common/Heading';
-import ImagesUpload from '../../components/admin/addplace/ImagesUpload';
 import { BASE_URL } from '../../constants/api';
 import { RefreshIcon } from '@heroicons/react/solid';
 
@@ -84,18 +82,18 @@ const schema = yup.object().shape({
     .max(1500, textTooLong)
     .min(30, textTooShort)
     .required(<Message message="Please enter a description" style="warning" />),
-  featuredImage: yup
+  /* featuredImage: yup
     .mixed()
     .required(
       <Message message="Please select a featured image" style="warning" />
-    ),
-  images: yup.mixed(),
+    ), */
+  // images: yup.mixed(),  
 });
 function AddPlace() {
   const [auth, setAuth] = useContext(AuthContext);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState(null);
-  
+
   const router = useRouter();
   const { register, handleSubmit, reset, formState: { errors }} = useForm({
     resolver: yupResolver(schema),
@@ -108,23 +106,46 @@ function AddPlace() {
     );
   }
 
-  /* const { register, handleSubmit, reset, formState: { errors }} = useForm({
-    resolver: yupResolver(schema),
-  }); */
-
   async function onSubmit(data) {
     const url = BASE_URL + 'places?populate=*';
-    console.log(data);
     setSubmitting(true);
     setSubmitError(null);
     const token = auth.jwt;
+    console.log('file content ===', data);
+      const formData = new FormData();
+      formData.append("files.featuredImage", data.featuredImage[0]);
+      delete data.featuredImage; 
+      formData.append("files.images", data.images[0]);
+      delete data.images;
+
+      /* const allImages = data.images;
+        if (allImages.files.length === 1) {
+                const file = allImages.files[0];
+                formData.append(`files.${allImages.name}`, file, file.name);
+            } else {
+                for (let i = 0; i < allImages.files.length; i++) {
+                    const file = allImages.files[i];
+                    formData.append(`files.${allImages.name}`, file, file.name);
+                } 
+            } */
+        
+      
+
+
+      formData.append('data', JSON.stringify(data));
+      console.log({formData});
     try {
       const options = {
         headers: {
           Authorization: `Bearer ${token}`,
         },
+        method: "POST",
+		    body: formData,
       };
-      const response = await axios.post(url, {data:data}, options);
+      
+      //const response = await axios.post(url, {data:formData}, options);
+      const response = await fetch(url, options);
+		  //console.log(response);
      /*  const response = await axios.post(url, data,  {headers: {
         Authorization: `Bearer ${token}`},
       }) */
@@ -278,12 +299,8 @@ function AddPlace() {
                         {errors.description && errors.description.message}
                       </div>
                     </div>
-                    <FeaturedImageUpload
-                      register={register}
-                      error={errors.featuredimage}
-                      errormessage={errors.featuredimagemessage}
-                    />
-                    <ImagesUpload register={register} />
+                    <input multiple type="file" {...register("images")} />
+                    <input type="file" {...register("featuredImage")} />
                   </div>
                   <div className="mt-6">
                     <div className="pr-4">

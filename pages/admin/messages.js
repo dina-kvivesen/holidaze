@@ -56,11 +56,12 @@ function Messages() {
   return (
     <AdminLayout>
       <Head title="Messages | Dashboard" />
-      <div className="w-full mx-auto">
+      <div className="m-0">
         <Heading text="Messages" />
-        <div className="shadow -m-8 mt-10 md:m-10 border-b border-gray-200  rounded-md sm:rounded-lg overflow-hidden">
-          <table className="w-full table-fixed divide-y divide-gray-200">
-            <thead className="bg-primary-light">
+        <div className='h-screen bg-neutral-light py-2 rounded-t-3xl'>
+        <div className="shadow m-10 ">
+          <table className="w-full table-fixed">
+            <thead className="bg-primary-light rounded-t-lg ">
               <tr>
                 <th
                   scope="col"
@@ -72,9 +73,6 @@ function Messages() {
                   className="w-full px-2 md:px-6 py-3 text-left text-sm font-semibold text-white uppercase tracking-wider">
                   Title
                 </th>
-                <th
-                  scope="col"
-                  className="w-2/12 px-6 py-3 text-left text-sm font-semibold text-white uppercase tracking-wider"></th>
               </tr>
             </thead>
             <tbody className="w-full bg-white divide-y divide-gray-200">
@@ -82,18 +80,14 @@ function Messages() {
                 return (
                   <tr
                     key={message.id}
-                    className={`${
-                      message.new === true
-                        ? 'text-black font-bold'
-                        : 'text-gray-700 bg-neutral-light'
-                    }   cursor-pointer w-full transition hover:shadow-lg`}
+                    className={` cursor-pointer w-full transition hover:shadow-lg`}
                     onClick={() =>
-                      message.new === true && readMessage(message.id)
+                      readMessage(message.id)
                     }>
                     <td className="hidden md:table-cell w-1/12 px-6 py-4 truncate whitespace-nowrap">
                       {message.attributes.name}
                     </td>
-                    <td className="w-1/12  px-2 md:px-6 py-4 whitespace-nowrap truncate">
+                    <td className="w-1/12  px-2 md:px-6 py-4 whitespace-nowrap truncate ">
                       <span className="w-1/4">
                         <Link
                           href="messages/[id]"
@@ -101,28 +95,13 @@ function Messages() {
                           <a>{message.attributes.title}</a>
                         </Link>
                       </span>
-
-                      <span
-                        className={
-                          message.new === true
-                            ? 'text-gray-600 font-normal ml-4 truncate w-3/4'
-                            : 'text-gray-400 ml-4 truncate w-3/4'
-                        }>
-                        {message.attributes.message}
-                      </span>
-                    </td>
-                    <td className="px-2 md:px-6 py-4 whitespace-nowrap">
-                      {message.new === true && (
-                        <p className="bg-primary text-white p-1 px-3 inline text-center mx-auto  rounded-full text-xs font-semibold">
-                          New
-                        </p>
-                      )}
                     </td>
                   </tr>
                 );
               })}
             </tbody>
           </table>
+        </div>
         </div>
       </div>
     </AdminLayout>

@@ -6,7 +6,7 @@ function DashboardBoxes({ heading, href, children }) {
     <div className="bg-white shadow flex flex-col justify-between rounded-md">
       <Link href={href} passHref>
         <a>
-          <h2 className="w-full cursor-pointer rounded-t-md bg-secondary font-semibold text-lg text-white p-4">
+          <h2 className="w-full cursor-pointer rounded-t-md bg-secondary-dark font-semibold text-lg text-white p-4">
             {heading}
           </h2>
         </a>

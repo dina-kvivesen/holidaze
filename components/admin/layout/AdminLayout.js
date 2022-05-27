@@ -8,14 +8,10 @@ import Sidebar from './sidebar/Sidebar';
 import Link from 'next/link';
 import AuthContext from '../../../context/AuthContext';
 import { useRouter } from 'next/router';
-import { fetchAdminData, getNewEnquiries } from '../../../hooks/useApi';
-import { BigMessage } from '../../common/Message';
 
 function AdminLayout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [auth, setAuth] = useContext(AuthContext);
-
-  // const enquiryLength = getNewEnquiries();
 
   const router = useRouter();
 
@@ -29,30 +25,8 @@ function AdminLayout({ children }) {
     router.push('/login');
     setAuth(null);
   }
-
   const user = auth.user;
- /*  const { data, error } = fetchAdminData('messages?new=true');
 
-  if (error || enquiryLength === 'error') {
-    console.log(error);
-    return (
-      <div>
-        <BigMessage message={`Error: ${error}`} style="danger" />
-      </div>
-    );
-  }
-  let newMessages;
-  if (data) {
-    newMessages = data.length;
-  }
-
-  if (!data || enquiryLength === 'loading') {
-    return (
-      <div>
-        <BigMessage message="Loading dashboard..." style="loading" />
-      </div>
-    );
-  } */
   return (
     <>
       {auth && (
@@ -82,8 +56,6 @@ function AdminLayout({ children }) {
               auth={auth}
               setAuth={setAuth}
               user={user}
-              /* newMessages={newMessages}
-              enquiryLength={enquiryLength} */
               logout={logout}
             />
           </Disclosure>
@@ -93,13 +65,11 @@ function AdminLayout({ children }) {
                 auth={auth}
                 setAuth={setAuth}
                 user={user}
-                /* newMessages={newMessages}
-                enquiryLength={enquiryLength} */
                 logout={logout}
               />
             </div>
-            <div className="col-span-4 lg:col-span-3 xl:col-span-4 pb-20 bg-gray-100">
-              <main className="mx-10">{children}</main>
+            <div className="col-span-4 lg:col-span-3 xl:col-span-4 pb-20 bg-secondary-dark h-screen">
+              <main className="m-0">{children}</main>
             </div>
           </div>
         </>
