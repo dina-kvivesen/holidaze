@@ -1,17 +1,14 @@
 import AdminLayout from '../../../components/admin/layout/AdminLayout';
-import { HeadingSmaller } from '../../../components/common/Heading';
 import Head from '../../../components/layout/Head';
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { useRouter } from 'next/router';
-import { BASE_URL } from '../../../constants/api';
 import moment from 'moment';
-import { getToken, getAuth } from '../../../hooks/useLocalStorage';
 import { fetchAdminData } from '../../../hooks/useApi';
 import { BigMessage } from '../../../components/common/Message';
 import AuthContext from '../../../context/AuthContext';
 
 function SingleMessage() {
-  const [auth, setAuth] = useContext(AuthContext);
+  const [auth] = useContext(AuthContext);
   const router = useRouter();
 
   if (!auth) {
@@ -31,18 +28,16 @@ function SingleMessage() {
     'dddd, MMMM Do YYYY, HH:mm'
   ); 
   const dateFromNow = moment(data.attributes.created_at).fromNow();
-  console.log(date);
   return (
     <>
       <AdminLayout>
         <Head title="Messages | Dashboard" />
         <div className="w-full mx-auto h-screen bg-neutral-light py-10 rounded-t-3xl">
-          <div className="p-10  sm:rounded-lg overflow-hidden">
+          <div className="m-10 rounded-t-lg overflow-hidden border-solid border-2 border-gray-200">
             <div className="p-6 bg-primary-light rounded-t-lg text-white">
               <h1 className="font-semibold text-lg">{data.attributes.title}</h1>
             </div>
-            {/* <div className='h-screen bg-neutral-light py-10 rounded-t-3xl'> */}
-              <div className="p-6 flex flex-row justify-between flex-wrap text-sm">
+              <div className="p-6 flex flex-row justify-between flex-wrap text-sm ">
                 <p>
                   <span className="font-bold">{data.attributes.name}</span> {data.attributes.email}
                 </p>
@@ -55,7 +50,6 @@ function SingleMessage() {
                 <a onClick={() => router.back()}>Go back to messages</a>
               </p>
             </div>
-          {/* </div> */}
         </div>
       </AdminLayout>
     </>

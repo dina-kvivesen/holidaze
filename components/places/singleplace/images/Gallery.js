@@ -9,7 +9,7 @@ function Gallery({ open, setOpen, photoIndex, setPhotoIndex, images }) {
    });
   let imageThumbs = [];
   images.forEach((image) => {
-    console.log(image.attributes?.formats.thumbnail.url);
+    //console.log(image.attributes?.formats.thumbnail.url);
     imageThumbs.push(image.attributes?.formats.thumbnail.url);
   });
   return (

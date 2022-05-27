@@ -24,7 +24,7 @@ function Layout({ children, containerSize }) {
       <div className={`flex-grow ${containerSize}`}>
         <main className="mx-auto">{children}</main>
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

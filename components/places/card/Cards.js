@@ -1,4 +1,4 @@
-import CardListItem from './CardListItem';
+import CardFasilities from './CardFasilities';
 import Link from 'next/link';
 import { Message } from '../../common/Message';
 
@@ -33,19 +33,19 @@ function Cards({ filteredPlaces }) {
               <span className="font-medium">${place.attributes.price}</span> / night
             </p>
             <ul className="mt-4 my-2">
-              <CardListItem
+              <CardFasilities
                 icon="bed"
                 text={`${place.attributes.bed} ${
                   place.bed === 1 ? 'bed' : 'beds'
                 }`}
               />
-              <CardListItem
+              <CardFasilities
                 icon="bath"
                 text={`${place.attributes.bath} ${
                   place.bath === 1 ? 'bath' : 'baths'
                 }`}
               />
-              <CardListItem
+              <CardFasilities
                 icon="parking"
                 text={`${place.attributes.parking} ${
                   place.parking === 1 ? 'parking' : 'parking'

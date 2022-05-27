@@ -14,7 +14,6 @@ import { PrimaryButton } from '../../../common/Buttons';
 function MobileSidebar({
   sidebarOpen,
   auth,
-  setAuth,
   logout,
 }) {
   const router = useRouter();
@@ -105,16 +104,6 @@ function MobileSidebar({
                 </li>
               </ul>
             </div>
-            {/* <div className="flex flex-row justify-center items-center py-4 bg-secondary w-full">
-              <div className="flex flex-col ml-4">
-                <p className="text-sm flex justify-center">
-                  {auth.user.username}
-                </p>
-                <p className="text-xs text-secondary-light opacity-70">
-                  {auth.user.email}
-                </p>
-              </div>
-            </div> */}
           </Transition>
         </Disclosure.Panel>
       )}

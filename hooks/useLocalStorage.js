@@ -47,14 +47,6 @@ export function getAuth() {
   }, []);
   return [auth, setAuth];
 }
-export function getUser() {
-  const [user, setUser] = useState(null);
-  useEffect(() => {
-    const authLocal = JSON.parse(localStorage.getItem('auth'));
-    setUser(authLocal.user);
-  }, []);
-  return [user, setUser];
-}
 export function getToken() {
   const [token, setToken] = useState(null);
   useEffect(() => {

@@ -4,7 +4,7 @@ import { MenuAlt3Icon, XIcon } from '@heroicons/react/outline';
 function SidebarToggle({ sidebarOpen, setSidebarOpen }) {
   return (
     <div className="-mr-2 flex lg:hidden">
-      <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md    focus:outline-none focus:ring-0 ">
+      <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md focus:outline-none focus:ring-0">
         <span className="sr-only">Open main menu</span>
         {sidebarOpen ? (
           <XIcon

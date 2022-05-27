@@ -6,7 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from 'prop-types';
 
-function CardListItem({ icon, text }) {
+function CardFasilities({ icon, text }) {
   switch (icon) {
     case 'parking':
       icon = <FontAwesomeIcon icon={faParking} className="inline w-4 mr-1 text-primary-light"/>;
@@ -26,9 +26,9 @@ function CardListItem({ icon, text }) {
   );
 }
 
-export default CardListItem;
+export default CardFasilities;
 
-CardListItem.propTypes = {
+CardFasilities.propTypes = {
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   icon: PropTypes.oneOf([
     'parking',

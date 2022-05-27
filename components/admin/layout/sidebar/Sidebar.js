@@ -10,7 +10,7 @@ import {
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-function Sidebar({ auth, setAuth, logout }) {
+function Sidebar({ logout }) {
   const router = useRouter();
 
   return (
@@ -98,15 +98,6 @@ function Sidebar({ auth, setAuth, logout }) {
             </li>
           </ul>
         </div>
-
-        {/* <div className="flex flex-col items-center pb-8 w-full">
-          <p className='flex justify-center'>
-            {auth.user.username}
-          </p>
-          <p className="text-xs text-secondary-light opacity-70">
-            {auth.user.email}
-          </p>
-        </div> */}
       </div>
     </>
   );

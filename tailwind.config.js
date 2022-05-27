@@ -18,18 +18,16 @@ module.exports = {
         },
         neutral: {
           light: '#F6F7F8',
-          DEFAULT: '#5c6ac4',
-          dark: '#202e78',
+          dark: '#171717',
         },
         secondary: {
-          light: '#EEF2FF',
           DEFAULT: '#153044',
           dark: '#123044',
-          darkest: '#001725',
+          darkest: '#001726',
         },
         success: {
-          DEFAULT: '#E0F1E7',
-          dark: '#0E6630',
+          DEFAULT: '#C8E3D3',
+          dark: '#0E622F',
         },
         warning: {
           DEFAULT: '#FFF89C',

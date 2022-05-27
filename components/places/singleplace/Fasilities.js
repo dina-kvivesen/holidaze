@@ -1,31 +1,26 @@
-import FeaturesListItem from './FeaturesListItem';
+import FasilitiesItem from './FasilitiesItem';
 
-function Features(props) {
+function Fasilities(props) {
   return (
     <ul>
-      <FeaturesListItem
+      <FasilitiesItem
         icon="bed"
         text={`${props.bedrooms} ${
           props.bedrooms === 1 ? 'bedroom' : 'bedrooms'
         }`}
       />
-      <FeaturesListItem
+      <FasilitiesItem
         icon="bath"
         text={`${props.bathrooms} ${
           props.bathrooms === 1 ? 'bathroom' : 'bathrooms'
         }`}
       />
-      <FeaturesListItem
+      <FasilitiesItem
         icon="parking"
         text={`${props.parking} ${props.parking === 1 ? 'parking' : 'parking'}`}
       />
-      {props.kitchen && <FeaturesListItem icon="kitchen" text="Kitchen" />}
-      {props.breakfast && (
-        <FeaturesListItem icon="breakfast" text="Breakfast" />
-      )}
-      {props.wifi && <FeaturesListItem icon="wifi" text="WIFI" />}
     </ul>
   );
 }
 
-export default Features;
+export default Fasilities;

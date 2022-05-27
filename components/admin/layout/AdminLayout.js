@@ -1,7 +1,6 @@
 import { Disclosure } from '@headlessui/react';
 import PropTypes from 'prop-types';
 import { useContext, useEffect, useState } from 'react';
-import { getAuth } from '../../../hooks/useLocalStorage';
 import SidebarToggle from './sidebar/SidebarToggle';
 import MobileSidebar from './sidebar/MobileSidebar';
 import Sidebar from './sidebar/Sidebar';

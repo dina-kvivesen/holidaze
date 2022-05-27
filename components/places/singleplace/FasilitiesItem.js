@@ -5,7 +5,7 @@ import {
   faBed,
 } from "@fortawesome/free-solid-svg-icons";
 
-function FeaturesListItem({ icon, text }) {
+function FasilitiesItem({ icon, text }) {
   switch (icon) {
     case 'parking':
       icon = <FontAwesomeIcon icon={faParking} className="inline w-5 mr-2 text-primary-light" />;
@@ -26,4 +26,4 @@ function FeaturesListItem({ icon, text }) {
   );
 }
 
-export default FeaturesListItem;
+export default FasilitiesItem;

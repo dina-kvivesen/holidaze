@@ -1,18 +1,14 @@
 import AdminLayout from '../../../components/admin/layout/AdminLayout';
-import { HeadingSmaller } from '../../../components/common/Heading';
 import Head from '../../../components/layout/Head';
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { useRouter } from 'next/router';
-import { BASE_URL } from '../../../constants/api';
 import moment from 'moment';
-import { getToken, getAuth } from '../../../hooks/useLocalStorage';
-import { fetchAdminData, fetchData } from '../../../hooks/useApi';
+import { fetchAdminData} from '../../../hooks/useApi';
 import { BigMessage } from '../../../components/common/Message';
 import AuthContext from '../../../context/AuthContext';
-import axios from 'axios';
 
 function SingleEnquiry() {
-  const [auth, setAuth] = useContext(AuthContext);
+  const [auth] = useContext(AuthContext);
   const router = useRouter();
 
   if (!auth) {
@@ -32,14 +28,13 @@ function SingleEnquiry() {
     'dddd, MMMM Do YYYY, HH:mm'
   );
   const dateFromNow = moment(data.attributes.created_at).fromNow();
-  console.log(date);
 
   return (
     <>
       <AdminLayout>
         <Head title="Enquiries | Dashboard" />
-        <div className="w-full mx-auto">
-          <div className="shadow m-10 border-b bg-white sm:rounded-lg overflow-hidden">
+        <div className="w-full mx-auto h-screen bg-neutral-light py-10 rounded-t-3xl">
+          <div className="m-10 rounded-t-lg overflow-hidden border-solid border-2 border-gray-200">
             <div className="p-6 bg-primary-light text-white">
               <h1 className="font-semibold text-lg">
                 Enquiry for {data.attributes.host} / {data.attributes.place}

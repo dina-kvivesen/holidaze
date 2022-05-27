@@ -4,9 +4,9 @@ import Layout from '../../components/layout/Layout';
 import { BASE_URL } from '../../constants/api';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
-import Features from '../../components/places/singleplace/Features';
+import Fasilities from '../../components/places/singleplace/Fasilities';
 import Host from '../../components/places/singleplace/Host';
-import ImageGrid from '../../components/places/singleplace/images/ImageGrid';
+import ImageLayout from '../../components/places/singleplace/images/ImageLayout';
 
 export default function Place() {
   const router = useRouter();
@@ -14,8 +14,6 @@ export default function Place() {
 
   const { data, error } = useSWR(
     id ? `${BASE_URL}places?populate=*&{id}` : null
-    
-    
   );
 
   if (error) return <p>error</p>;
@@ -23,7 +21,7 @@ export default function Place() {
 
 const parsedId = parseInt(id);
 const place = data.find(item => item.id === parsedId);
-   console.log(place.attributes.images.data);
+  //console.log(place.attributes.images.data);
   
 
   return (
@@ -31,8 +29,7 @@ const place = data.find(item => item.id === parsedId);
       <div className="bg-neutral-light min-h-screen p-5 mt-20 rounded-t-lg">
       <div className="mt-5">
         <Head title={place.id} />
-        {/* <></> */}
-        <ImageGrid featured={place.attributes.featuredImage.data} images={place.attributes.images.data} />
+        <ImageLayout featured={place.attributes.featuredImage.data} images={place.attributes.images.data} />
         <HeadingSmaller text={place.attributes.title} />
         <div className="my-4 flex items-center">
           <p className="text-xl">
@@ -42,7 +39,7 @@ const place = data.find(item => item.id === parsedId);
         <div className="grid grid-cols-5 gap-10">
           <div className="col-span-5 xl:col-span-3">
             <div>
-              <Features
+              <Fasilities
                 bedrooms={place.attributes.bed}
                 bathrooms={place.attributes.bath}
                 parking={place.attributes.parking}

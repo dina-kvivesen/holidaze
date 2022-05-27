@@ -21,7 +21,7 @@ function Home() {
       .then((res) => {
         setPlaces(res.data.data);
         setFilteredPlaces(res.data.data);
-        console.log(res.data.data);
+        //console.log(res.data.data);
       })
       .catch((error) => {
         console.log(error);
@@ -43,8 +43,7 @@ function Home() {
       </Layout>
     );
   }
-
-
+  
   return (
     <Layout containerSize="fullWidth">
       <Head title="Accommodations" />
