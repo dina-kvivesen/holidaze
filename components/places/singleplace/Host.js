@@ -1,5 +1,5 @@
 import { PrimaryButton } from '../../common/Buttons';
-import EnquiryForm from './EnquiryForm';
+import EnquiryForm from './Enquiryform';
 import { Disclosure, Transition } from '@headlessui/react';
 import { XIcon } from '@heroicons/react/solid';
 
