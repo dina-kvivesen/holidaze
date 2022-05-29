@@ -4,8 +4,6 @@ import NavbarMobile from './NavbarMobile';
 import MenuToggle from './MenuToggle';
 import AdminDropdown from './AdminDropdown';
 import Link from 'next/link';
-import { useContext } from 'react';
-import AuthContext from '../../../context/AuthContext';
 import { useRouter } from 'next/router';
 import { getAuth } from '../../../hooks/useLocalStorage';
 
@@ -70,7 +68,7 @@ export default function Navbar() {
               </>
             ) : (
               <Link href="/login">
-                <a className="text-slate-200">Sign in</a>
+                <a className="text-slate-200 px-3 py-1 rounded-lg transition hover:bg-gray-100 hover:text-gray-900 hover:shadow-md">Sign in</a>
               </Link>
             )}
           </div>

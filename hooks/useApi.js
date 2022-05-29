@@ -3,22 +3,16 @@ import { BASE_URL } from '../constants/api';
 import useSWR from 'swr';
 import { getToken } from '../hooks/useLocalStorage';
 
+
 export function getStrapiURL(path = '') {
   return BASE_URL + path;
 }
 
-export function fetchData(path) {
-  const url = getStrapiURL(path);
-  const fetcher = (url) => axios.get(url).then((res) => res.data.data);
-  const { data, error } = useSWR(url, fetcher);
-
-  return { data, error };
-}
-export function fetchAdminData(path) {
+export function getAdminData(path) {
   const [token, setToken] = getToken();
   const url = getStrapiURL(path);
 
-  const fetchWithToken = (url) =>
+  const getWithToken = (url) =>
     axios
       .get(url, {
         headers: {
@@ -27,7 +21,7 @@ export function fetchAdminData(path) {
       })
       .then((res) => res.data.data);
 
-  const { data, error } = useSWR(token ? url : null, fetchWithToken, {
+  const { data, error } = useSWR(token ? url : null, getWithToken, {
     refreshInterval: 5000,
   });
 

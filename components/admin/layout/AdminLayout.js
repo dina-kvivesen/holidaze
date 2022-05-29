@@ -1,15 +1,15 @@
 import { Disclosure } from '@headlessui/react';
 import PropTypes from 'prop-types';
 import { useContext, useEffect, useState } from 'react';
-import SidebarToggle from './sidebar/SidebarToggle';
-import MobileSidebar from './sidebar/MobileSidebar';
-import Sidebar from './sidebar/Sidebar';
+import SidenavToggle from './sidenav/SidenavToggle';
+import MobileSidenav from './sidenav/MobileSidenav';
+import Sidenav from './sidenav/Sidenav';
 import Link from 'next/link';
 import AuthContext from '../../../context/AuthContext';
 import { useRouter } from 'next/router';
 
 function AdminLayout({ children }) {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidenavOpen, setSidenavOpen] = useState(false);
   const [auth, setAuth] = useContext(AuthContext);
 
   const router = useRouter();
@@ -44,14 +44,14 @@ function AdminLayout({ children }) {
                     />
                   </a>
                 </Link>
-                <SidebarToggle
-                  setSidebarOpen={setSidebarOpen}
-                  sidebarOpen={sidebarOpen}
+                <SidenavToggle
+                  setSidenavOpen={setSidenavOpen}
+                  sidenavOpen={sidenavOpen}
                 />
               </div>
             </div>
-            <MobileSidebar
-              sidebarOpen={sidebarOpen}
+            <MobileSidenav
+              sidenavOpen={sidenavOpen}
               auth={auth}
               setAuth={setAuth}
               user={user}
@@ -60,7 +60,7 @@ function AdminLayout({ children }) {
           </Disclosure>
           <div className="m-0 grid grid-cols-4 xl:grid-cols-5 z-0">
             <div className="hidden lg:block col-span-1 h-screen">
-              <Sidebar
+              <Sidenav
                 auth={auth}
                 setAuth={setAuth}
                 user={user}

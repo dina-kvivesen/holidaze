@@ -37,7 +37,7 @@ function EnquiryForm({ place, host }) {
     setSubmitError(null);
     try {
       const response = await axios.post(BASE_URL + 'enquiries', {data:data});
-      console.log(response);
+      //console.log(response);
       setSubmitMessage(<Message message="Enquiry sent" style="success" />);
     } catch (error) {
       console.log('error', error);
@@ -48,7 +48,7 @@ function EnquiryForm({ place, host }) {
     }
   }
   return (
-    <div>
+    <div className='bg-gray-200'>
       <form onSubmit={handleSubmit(onSubmit)}>
         <fieldset disabled={submitting}>
           <input
@@ -63,8 +63,8 @@ function EnquiryForm({ place, host }) {
             name="host"
             id="host"
             value={host}></input>
-          <div className="mt-2 shadow-lg overflow-hidden sm:rounded-md">
-            <div className="px-4 py-5 bg-white sm:p-6">
+          <div className="mt-2 shadow-lg overflow-hidden rounded-t-lg">
+            <div className="px-4 py-5 bg-gray-200 sm:p-6">
               <div className="text-left">
                 <div className="flex flex-col mb-6">
                   <label

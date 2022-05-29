@@ -3,12 +3,12 @@ import EnquiryForm from './Enquiryform';
 import { Disclosure, Transition } from '@headlessui/react';
 import { XIcon } from '@heroicons/react/solid';
 
-function Host({ host, place }) {
+function EnquiryBox({ host, place }) {
   return (
     <Disclosure>
       {({ open }) => (
         <>
-          <div className="flex bg-gray-100 justify-between items-center p-4 py-6 rounded-md">
+          <div className="flex bg-gray-200 justify-between items-center p-4 py-6 rounded-t-lg mt-5">
             <div className="flex items-center">
               <p className="font-semibold">{host}</p>
             </div>
@@ -42,4 +42,4 @@ function Host({ host, place }) {
   );
 }
 
-export default Host;
+export default EnquiryBox;

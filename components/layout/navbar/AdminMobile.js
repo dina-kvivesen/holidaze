@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { LogoutIcon, CogIcon } from '@heroicons/react/outline';
+import { LogoutIcon, ViewGridIcon } from '@heroicons/react/outline';
 import { useRouter } from 'next/router';
 import { useContext } from 'react';
 import AuthContext from '../../../context/AuthContext';
@@ -27,7 +27,7 @@ function AdminMobile() {
       <div className="mt-3 px-2 space-y-1">
         <Link href="/">
           <a className="nav__link__mobile">
-            <CogIcon className="inline w-5 mr-2" /> Dashboard
+            <ViewGridIcon className="inline w-5 mr-2" /> Dashboard
           </a>
         </Link>
         <a onClick={logout} className="cursor-pointer nav__link__mobile">

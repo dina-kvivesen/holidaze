@@ -6,7 +6,6 @@ import { PrimaryButton } from '../../components/common/Buttons';
 import { BigMessage, Message } from '../../components/common/Message';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
-import axios from 'axios';
 import { yupResolver } from '@hookform/resolvers/yup';
 import AuthContext from '../../context/AuthContext';
 import Heading from '../../components/common/Heading';
@@ -86,8 +85,12 @@ const schema = yup.object().shape({
     .mixed()
     .required(
       <Message message="Please select a featured image" style="warning" />
-    ), */
-  // images: yup.mixed(),  
+    ), 
+  images: yup
+  .mixed()
+  .required(
+    <Message message="Please select an image" style="warning" />
+  ), */
 });
 function AddPlace() {
   const [auth, setAuth] = useContext(AuthContext);
@@ -111,29 +114,15 @@ function AddPlace() {
     setSubmitting(true);
     setSubmitError(null);
     const token = auth.jwt;
-    console.log('file content ===', data);
+    //console.log('file content ===', data);
       const formData = new FormData();
       formData.append("files.featuredImage", data.featuredImage[0]);
       delete data.featuredImage; 
       formData.append("files.images", data.images[0]);
       delete data.images;
 
-      /* const allImages = data.images;
-        if (allImages.files.length === 1) {
-                const file = allImages.files[0];
-                formData.append(`files.${allImages.name}`, file, file.name);
-            } else {
-                for (let i = 0; i < allImages.files.length; i++) {
-                    const file = allImages.files[i];
-                    formData.append(`files.${allImages.name}`, file, file.name);
-                } 
-            } */
-        
-      
-
-
       formData.append('data', JSON.stringify(data));
-      console.log({formData});
+      //console.log({formData});
     try {
       const options = {
         headers: {
@@ -142,24 +131,9 @@ function AddPlace() {
         method: "POST",
 		    body: formData,
       };
-      
-      //const response = await axios.post(url, {data:formData}, options);
+     
       const response = await fetch(url, options);
-		  //console.log(response);
-     /*  const response = await axios.post(url, data,  {headers: {
-        Authorization: `Bearer ${token}`},
-      }) */
-
-      /* const response = await axios.post(
-        url,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        },
-        data
-      ); */
-      console.log(response);
+      //console.log(response);
     } catch (error) {
       console.log('error', error);
       setSubmitError(error.toString());
@@ -299,8 +273,29 @@ function AddPlace() {
                         {errors.description && errors.description.message}
                       </div>
                     </div>
-                    <input multiple type="file" {...register("images")} />
-                    <input type="file" {...register("featuredImage")} />
+                    <div className="col-span-1 sm:col-span-2 xl:col-span-1">
+                      <label className="mt-3 block text-sm font-medium text-gray-700">
+                        Choose image:
+                      </label>
+                      <input 
+                      required
+                      type="file" 
+                      name="images" 
+                      {...register("images")}></input>
+                      {/* {errors.images && errors.images.message} */}
+                    </div>
+                    <div className="col-span-1 sm:col-span-2 xl:col-span-1">
+                      <label className="mt-3 block text-sm font-medium text-gray-700">
+                        Choose featured image:
+                      </label>
+                      <input 
+                      required
+                      type="file" 
+                      name="featuredImage" 
+                      {...register("featuredImage")}></input>
+                      {/* {errors.featuredImage && errors.featuredImage.message} */}
+                    </div>
+                    
                   </div>
                   <div className="mt-6">
                     <div className="pr-4">

@@ -1,6 +1,5 @@
 import { ChevronDownIcon, XIcon } from '@heroicons/react/outline';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { useState } from 'react';
 
 function SearchBar({ places, filteredPlaces, setFilteredPlaces }) {
@@ -8,16 +7,15 @@ function SearchBar({ places, filteredPlaces, setFilteredPlaces }) {
   const [search, setSearch] = useState('');
   const [listHover, setListHover] = useState(false);
   const [inputActive, setInputActive] = useState(false);
-  const router = useRouter();
 
-  const handleSearch = async (search) => {
+  const handleSearchfunction = async (search) => {
     setSearch(search);
     const filtered = places.filter((places) =>
       places.attributes.title.toLowerCase().includes(search.toLowerCase())
     );
     setFilteredPlaces(filtered);
   };
-  function clearSearch() {
+  function clearSearchfunction() {
     setSearch('');
     setFilteredPlaces(places);
   }
@@ -41,24 +39,24 @@ function SearchBar({ places, filteredPlaces, setFilteredPlaces }) {
   return (
     <div className="flex flex-col pt-6">
       <div className="flex flex-row ">
-        <label htmlFor="searchplace" className="sr-only">
+        <label htmlFor="search" className="sr-only">
           Password
         </label>
         <div className="relative w-full">
           <input
             type="text"
-            name="searchplace"
-            id="searchplace"
+            name="search"
+            id="search"
             autoComplete="off"
             value={search}
-            placeholder="Search for a place to stay..."
+            placeholder="Search accommodations..."
             className="py-3 px-4 border w-full outline-none border-gray-300 border-r-0  focus:border-primary rounded-l-full"
-            onChange={(e) => handleSearch(e.target.value)}
+            onChange={(e) => handleSearchfunction(e.target.value)}
             onClick={() => inputFocus()}
             onBlur={() => inputBlur()}></input>
           <div
             className="absolute inset-y-0 right-0 cursor-pointer  text-gray-500 hover:text-gray-700   px-3 flex justify-center"
-            onClick={() => clearSearch()}>
+            onClick={() => clearSearchfunction()}>
             <XIcon className="w-5" />
           </div>
         </div>

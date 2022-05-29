@@ -5,7 +5,7 @@ import { BASE_URL } from '../../constants/api';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
 import Fasilities from '../../components/places/singleplace/Fasilities';
-import Host from '../../components/places/singleplace/Host';
+import EnquiryBox from '../../components/places/singleplace/EnquiryBox';
 import ImageLayout from '../../components/places/singleplace/images/ImageLayout';
 
 export default function Place() {
@@ -16,8 +16,8 @@ export default function Place() {
     id ? `${BASE_URL}places?populate=*&{id}` : null
   );
 
-  if (error) return <p>error</p>;
-  if (!data) return <p>loading..</p>;
+  if (error) return <p>an error has occured, try again later</p>;
+  if (!data) return <p>loading accomodation..</p>;
 
 const parsedId = parseInt(id);
 const place = data.find(item => item.id === parsedId);
@@ -28,7 +28,7 @@ const place = data.find(item => item.id === parsedId);
     <Layout containerSize="fullWidth">
       <div className="bg-neutral-light min-h-screen p-5 mt-20 rounded-t-lg">
       <div className="mt-5">
-        <Head title={place.id} />
+        <Head title={place.attributes.title} />
         <ImageLayout featured={place.attributes.featuredImage.data} images={place.attributes.images.data} />
         <HeadingSmaller text={place.attributes.title} />
         <div className="my-4 flex items-center">
@@ -46,12 +46,12 @@ const place = data.find(item => item.id === parsedId);
               />
             </div>
             <div className="block xl:hidden">
-            <Host host={place.attributes.host} place={place.attributes.title} />
+            <EnquiryBox host={place.attributes.host} place={place.attributes.title} />
             </div>
             <p className="mt-6 leading-relaxed">{place.attributes.description}</p>
           </div>
           <div className="hidden xl:block col-span-2">
-          <Host host={place.attributes.host} place={place.attributes.title} />
+          <EnquiryBox host={place.attributes.host} place={place.attributes.title} />
           </div>
         </div>
       </div>

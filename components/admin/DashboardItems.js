@@ -13,8 +13,8 @@ function DashboardItems({ heading, href, children }) {
       </Link>
       <div className="p-6">{children}</div>
       <Link href={href} passHref>
-        <div className="w-full cursor-pointer rounded-b-md bg-gray-100 hover:bg-gray-50 p-4 text-sm text-center font-medium hover:font-bold">
-          View all {heading}
+        <div className="w-full cursor-pointer rounded-b-md bg-gray-100 hover:bg-gray-50 p-4 text-sm text-center font-medium hover:font-bold uppercase">
+          go to {heading}
         </div>
       </Link>
     </div>

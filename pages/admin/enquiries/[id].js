@@ -3,7 +3,7 @@ import Head from '../../../components/layout/Head';
 import { useContext } from 'react';
 import { useRouter } from 'next/router';
 import moment from 'moment';
-import { fetchAdminData} from '../../../hooks/useApi';
+import { getAdminData} from '../../../hooks/useApi';
 import { BigMessage } from '../../../components/common/Message';
 import AuthContext from '../../../context/AuthContext';
 
@@ -19,15 +19,15 @@ function SingleEnquiry() {
   }
   const { id } = router.query;
 
-  const { data, error } = fetchAdminData('enquiries/' + id);
-
+  const { data, error } = getAdminData('enquiries/' + id);
+  //console.log(data);
   if (error) return <BigMessage message={`${error}`} style="danger" />;
   if (!data) return <BigMessage message="Loading..." style="loading" />;
 
-  const date = moment(data.attributes.created_at).format(
+  const date = moment(data.attributes.createdAt).format(
     'dddd, MMMM Do YYYY, HH:mm'
   );
-  const dateFromNow = moment(data.attributes.created_at).fromNow();
+  const dateFromNow = moment(data.attributes.createdAt).fromNow();
 
   return (
     <>

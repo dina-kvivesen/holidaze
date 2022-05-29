@@ -11,7 +11,7 @@ import {
 } from '@heroicons/react/outline';
 import { PrimaryButton } from '../../../common/Buttons';
 
-function MobileSidebar({
+function MobileSidenav({
   sidebarOpen,
   auth,
   logout,
@@ -38,7 +38,7 @@ function MobileSidebar({
                   <a className="cursor-pointer">
                     <PrimaryButton type="">
                       <PlusCircleIcon className="inline w-5 mr-3" />
-                      Add new place
+                      Add accommodation
                     </PrimaryButton>
                   </a>
                 </Link>
@@ -111,4 +111,4 @@ function MobileSidebar({
   );
 }
 
-export default MobileSidebar;
+export default MobileSidenav;

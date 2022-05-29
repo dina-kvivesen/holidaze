@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import AuthContext from '../../context/AuthContext';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { fetchAdminData } from '../../hooks/useApi';
+import { getAdminData } from '../../hooks/useApi';
 import { BigMessage } from '../../components/common/Message';
 
 function Enquiries() {
@@ -19,14 +19,14 @@ function Enquiries() {
     );
   }
 
-  const { data, error } = fetchAdminData('enquiries');
+  const { data, error } = getAdminData('enquiries');
 
   if (error) {
     console.log(error);
     return (
       <AdminLayout>
         <Head title="Enquiries | Dashboard" />
-        <BigMessage message="Something went wrong..." style="danger" />
+        <BigMessage message="Oops something went wrong..." style="danger" />
       </AdminLayout>
     );
   }
@@ -34,7 +34,7 @@ function Enquiries() {
     return (
       <AdminLayout>
         <Head title="Enquiries | Dashboard" />
-        <BigMessage message="Loading..." style="loading" />
+        <BigMessage message="Loading messages..." style="loading" />
       </AdminLayout>
     );
   return (
@@ -49,12 +49,12 @@ function Enquiries() {
                 <tr>
                   <th
                     scope="col"
-                    className="hidden md:table-cell w-1/4 px-6 py-3 text-left text-sm font-semibold text-white uppercase tracking-wider">
+                    className="hidden md:table-cell w-1/4 px-6 py-3 text-left font-semibold text-white uppercase">
                     Guest
                   </th>
                   <th
                     scope="col"
-                    className="w-full px-2 md:px-6 py-3 text-left text-sm font-semibold text-white uppercase tracking-wider">
+                    className="w-full px-2 md:px-6 py-3 text-left font-semibold text-white uppercase">
                     Host / Message
                   </th>
                 </tr>
@@ -66,7 +66,11 @@ function Enquiries() {
                       key={enquiry.id}
                       className={`cursor-pointer w-full transition hover:shadow-lg`}>
                       <td className="hidden md:table-cell w-1/12 px-6 py-4 truncate whitespace-nowrap">
-                        {enquiry.attributes.user_name}
+                        <Link
+                          href="enquiries/[id]"
+                          as={`enquiries/${enquiry.id}`}>
+                          <a>{enquiry.attributes.user_name}</a>
+                        </Link>
                       </td>
                       <td className="w-1/12 px-2 md:px-6 py-4 whitespace-nowrap truncate">
                         <span className="w-1/4">

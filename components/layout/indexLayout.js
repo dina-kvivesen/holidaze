@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
-import Footer from './Footer';
 import Navbar from './navbar/Navbar';
 
-function Layout({ children, containerSize }) {
+function IndexLayout({ children, containerSize }) {
   switch (containerSize) {
     case 'fullWidth':
       containerSize = 'm-0';
@@ -24,14 +23,13 @@ function Layout({ children, containerSize }) {
       <div className={`flex-grow ${containerSize}`}>
         <main className="mx-auto">{children}</main>
       </div>
-      {/* <Footer /> */}
     </div>
   );
 }
 
-Layout.propTypes = {
+IndexLayout.propTypes = {
   children: PropTypes.node.isRequired,
   containerSize: PropTypes.oneOf(['fullWidth', 'smallWidth']).isRequired,
 };
 
-export default Layout;
+export default IndexLayout;

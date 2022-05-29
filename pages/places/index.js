@@ -39,7 +39,7 @@ function Home() {
   if (!filteredPlaces && !error) {
     return (
       <Layout containerSize="fullWidth">
-        <BigMessage message="Loading..." style="loading" />
+        <BigMessage message="Loading accomodations..." style="loading" />
       </Layout>
     );
   }

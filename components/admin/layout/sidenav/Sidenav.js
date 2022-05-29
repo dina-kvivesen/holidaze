@@ -10,7 +10,7 @@ import {
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-function Sidebar({ logout }) {
+function Sidenav({ logout }) {
   const router = useRouter();
 
   return (
@@ -31,7 +31,7 @@ function Sidebar({ logout }) {
               <a className="cursor-pointer">
                 <PrimaryButton type="">
                   <PlusCircleIcon className="inline w-5 mr-3" />
-                  Add new place
+                  Add accommodation
                 </PrimaryButton>
               </a>
             </Link>
@@ -103,4 +103,4 @@ function Sidebar({ logout }) {
   );
 }
 
-export default Sidebar;
+export default Sidenav;
