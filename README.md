@@ -8,7 +8,7 @@ Holidaze is a website for publishing and booking accommodations.
 A local tourism agency in Bergen is launching a new website called ‘Holidaze’ for visitors to the area to be able to find hotels, B&Bs and guesthouses, and for the accommodation owners to receive enquiries.
 
 ## Built with
-- NextJS
+- [NextJS](https://nextjs.org/)
 - [Tailwind css](https://tailwindcss.com/)
 - [Strapi](https://strapi.io/)
 
