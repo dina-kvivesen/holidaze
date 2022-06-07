@@ -10,6 +10,7 @@ A local tourism agency in Bergen is launching a new website called â€˜Holidazeâ€
 ## Built with
 - NextJS
 - Tailwind css
+- [Strapi](https://strapi.io/)
 
 ## Getting Started
 ### Installing
