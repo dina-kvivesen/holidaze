@@ -1,3 +1,8 @@
+# Holidaze 
+
+<img width="887" alt="Skjermbilde 2022-06-07 kl  15 44 37" src="https://user-images.githubusercontent.com/71272716/172396449-75cf3769-a069-4d24-b647-5dd023c46db4.png">
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
